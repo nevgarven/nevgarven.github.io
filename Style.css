@@ -31,14 +31,15 @@ div.strip {
 /*  top: 50%;*/
   right: -10%;
   width:80%;
+  height:auto;
   padding-top: 150px;
   padding-bottom: 80px;
  /* transform: translate(0%, 50%);*/
 }
 
 picture{
-min-width: 100%;
-min-height: 100%;
+width: 100%;
+height: auto;
 }
 
 /*img{
@@ -49,8 +50,8 @@ img {
 
     position: relative;
     left: 50%;
-    min-width: 100%;
-    min-height: 100%;
+    width: 100%;
+    height: auto;
     transform: translateX(-50%);
 }
 
