@@ -80,6 +80,8 @@ div.arrowRight{
   position: fixed;
   top: 50%;
   right: 0%;
+  width:20%;
+  height:auto;
   transform: translate(0%, -50%);
 }
 
@@ -87,7 +89,9 @@ div.arrowLeft{
   display:inline;
   position: fixed;
   top: 50%;
-  left: 8px;
+  left: 0%;
+  width:20%;
+  height:auto;
   transform: translate(0%, -50%);
 }
 
