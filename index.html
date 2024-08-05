@@ -1,46 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Horace and Safetypin Conquer the World</title>
-<link rel="stylesheet" href="Style.css">
-<script type="text/javascript"> // RELOADS WEBPAGE WHEN MOBILE ORIENTATION CHANGES
-window.onorientationchange = function() { window.location.reload(); };
-</script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-87103304-1', 'auto');
-  ga('send', 'pageview');
-</script>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta charset="utf-8">
+    <title>Horace and Safetypin Conquer the World</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+    <script src="script.js"></script>
 </head>
+
 <body>
-<section>
-<a href=eye.html>
-<div class="navRight"></div>
-</a>
-<div class="strip">
- <picture>
-  <source srcset="cuteV.png" media="screen and (orientation: portrait)">
-  <source srcset="cuteH.png">
-  <img src="cuteH.png" alt="Cute, like bronies">
-</picture>
-</div>
-<a href=eye.html>
-<div class="arrowRight">
-​<picture>
- <source srcset="arrowR.svg" type="image/svg+xml">
- <img src="arrowR.png" alt="Next">
-</picture>
-</div>
-</a>
-</section>
-<header>
-<h2>Horace and Safetypin Conquer the World</h2>
-</header>
-<footer><p>Text and images Copyright Nev Garven. All rights reserved. Cannot be reproduced without permission.
-</p>
-</footer>
-</body>
+
+    <section>
+  
+            <div class="navLeft" value="Last" onclick="hsv.prev('vert'); hsh.prev('hori');"></div>
+  
+ 
+            <div class="navRight" value="Next" onclick="hsv.next('vert'); hsh.next('hori');"></div>
+
+        <div class="strip">
+
+            <picture>
+                <source id="vert" srcset="img/toothpasteV.png" media="screen and (orientation: portrait)">
+                <source id="hori" srcset="img/toothpasteH.png">
+                <img src="toothpasteH.png">
+            </picture>
+
+        </div>
+
+              <div class="arrowLeft" value="Last" onclick="hsv.prev('vert'); hsh.prev('hori');">
+                ​<picture>
+                    <img src="img/arrowL.svg" alt="Last">
+                </picture>
+            </div>
+
+ 
+            <div class="arrowRight" value="Next" onclick="hsv.next('vert'); hsh.next('hori');">
+                ​<picture>
+                    <img src="img/arrowR.svg" alt="Next">
+                </picture>
+            </div>
+
+    </section>
+
+           <header value="Home" onclick="hsv.home('vert'); hsh.home('hori');">
+            <h2>Horace and Safetypin Conquer the World</h2>
+        </header>
+    
+    <footer>
+        <p>Text and images Copyright Nev Garven. All rights reserved. Cannot be reproduced without permission.</p>
+    </footer>
+
+
+</body></html>
