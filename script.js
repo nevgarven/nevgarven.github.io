@@ -43,6 +43,6 @@ function StripCollection(strips) {
  }
 
 // Strip array horizontal images
-var hsh = new StripCollection(["telepathyH.png","curseH.png","blinkH.png","toothpasteH.png","notcomingH.png","lateH.png","tangledH.png","cuteH.png", "biteH.png", "eyeH.png", "alligatorH.png", "toeH.png", "cupcakeH.png", "whaleH.png", "hatH.png", "VoiceH.png", "switchH.png", "sunbrellaH.png", "badlyDrawnH.png", "ispyH.png", "winnersH.png"]);
+var hsh = new StripCollection(["thoughtsH.png","telepathyH.png","curseH.png","blinkH.png","toothpasteH.png","notcomingH.png","lateH.png","tangledH.png","cuteH.png", "biteH.png", "eyeH.png", "alligatorH.png", "toeH.png", "cupcakeH.png", "whaleH.png", "hatH.png", "VoiceH.png", "switchH.png", "sunbrellaH.png", "badlyDrawnH.png", "ispyH.png", "winnersH.png"]);
 // Strip array vertical images
-var hsv = new StripCollection(["telepathyV.png","curseV.png","blinkV.png","toothpasteV.png","notcomingV.png","lateV.png","tangledV.png","cuteV.png", "biteV.png", "eyeV.png", "alligatorV.png", "toeV.png", "cupcakeV.png", "whaleV.png", "hatV.png", "VoiceV.png", "switchV.png", "sunbrellaV.png", "badlyDrawnV.png", "ispyV.png", "winnersV.png"]);
+var hsv = new StripCollection(["thoughtsV.png","telepathyV.png","curseV.png","blinkV.png","toothpasteV.png","notcomingV.png","lateV.png","tangledV.png","cuteV.png", "biteV.png", "eyeV.png", "alligatorV.png", "toeV.png", "cupcakeV.png", "whaleV.png", "hatV.png", "VoiceV.png", "switchV.png", "sunbrellaV.png", "badlyDrawnV.png", "ispyV.png", "winnersV.png"]);
