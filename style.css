@@ -26,12 +26,12 @@ section {
 }
 
 div.strip {
-  position:relative;
-  display:flex;
-  right: -10%;
-  width:80%;
-  height:auto;
-  padding-top: 150px;
+position: relative;
+  display: flex;
+  right: -30%;
+  width: 40%;
+  height: auto;
+  padding-top: 100px;
   padding-bottom: 80px;
 }
 
