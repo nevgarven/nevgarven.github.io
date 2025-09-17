@@ -43,6 +43,6 @@ function StripCollection(strips) {
  }
 
 // Strip array horizontal images
-var hsh = new StripCollection(["20250221_Pete.png","20250225_online.png","20250228_Winners.png"]);
+var hsh = new StripCollection(["winnersH.png","whaleH.png"]);
 // Strip array vertical images
-var hsv = new StripCollection(["20250221_Pete.png","20250225_online.png","20250228_Winners.png"]);
+var hsv = new StripCollection(["winnersV.png","whaleH.png"]);
