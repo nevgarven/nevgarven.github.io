@@ -1,48 +1,51 @@
-// RELOADS WEBPAGE WHEN MOBILE ORIENTATION CHANGES
-//window.onorientationchange = function() { window.location.reload(); };
+// Navigate through a single array of square strip images.
+function StripCollection(images, imgId) {
+  this.images = images;
+  this.img = document.getElementById(imgId);
+  this.i = 0;
 
- // Navigate through strip array
-function StripCollection(strips) {
-     this.strips = strips;
-     this.i = 0;
+  // Swap the visible image, with a quick fade for polish.
+  this.show = function (index) {
+    var el = this.img;
+    el.classList.add('is-changing');
+    window.setTimeout(function () {
+      el.setAttribute('src', images[index]);
+      el.classList.remove('is-changing');
+    }, 120);
+  };
 
-	 //function for next image
-     this.next = function(imgId) {
-		window.scrollTo(0, 0);		
-		var img = document.getElementById(imgId);
-		this.i++;
-		
+  // Go to the next image, wrapping to the start at the end.
+  this.next = function () {
+    this.i++;
+    if (this.i >= this.images.length) {
+      this.i = 0;
+    }
+    this.show(this.i);
+  };
 
-	 //reset to start if pass end of array
-     if (this.i == strips.length)
-         this.i = 0;
-     img.setAttribute("srcset", strips[this.i]);
-		 }
+  // Go to the previous image, wrapping to the end at the start.
+  this.prev = function () {
+    this.i--;
+    if (this.i < 0) {
+      this.i = this.images.length - 1;
+    }
+    this.show(this.i);
+  };
 
-	 //function for previous image
-     this.prev = function(imgId) {
-	window.scrollTo(0, 0);     
-	var img = document.getElementById(imgId);
-     	this.i--;
-     
+  // Jump back to the first image (used by clicking the header).
+  this.home = function () {
+    this.i = 0;
+    this.show(this.i);
+  };
+}
 
-	 //reset to end if pass start of array
-     if (this.i < 0)
-         this.i = strips.length -1;
-     img.setAttribute("srcset", strips[this.i]);
-     }
- 
-    //Reset to start, instead of home button
-     this.home = function(imgId) {
-	window.scrollTo(0, 0);         
-	var img = document.getElementById(imgId);
-         this.i = 0;
-         img.setAttribute("srcset", strips[this.i]);
-     }
-
- }
-
-// Strip array horizontal images
-var hsh = new StripCollection(["winnersH.png","whaleH.png"]);
-// Strip array vertical images
-var hsv = new StripCollection(["winnersV.png","whaleH.png"]);
+// List your square (1080x1080) strip images here, in order.
+// Add as many as you like - just keep adding filenames to this array.
+var strip = new StripCollection(
+  [
+    '20250228_Winners.png',
+    '20250225_online.png',
+	'20250221_Pete.png'
+  ],
+  'stripImg'
+);
