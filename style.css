@@ -34,8 +34,8 @@ header {
   height: var(--header-h);
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 12px;
+  padding: 0 12px;
   background-color: var(--bar);
   border-bottom: 3px solid var(--accent);
   cursor: pointer;
@@ -48,6 +48,7 @@ header:hover {
 }
 
 h1 {
+  flex: 1 1 auto;
   font-family: 'Special Elite', cursive;
   font-size: clamp(16px, 3vw, 26px);
   text-align: center;
@@ -57,7 +58,6 @@ h1 {
   letter-spacing: 0.5px;
 }
 
-.randomBtn,
 .iconBtn {
   flex: 0 0 auto;
   width: 32px;
@@ -74,20 +74,17 @@ h1 {
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.randomBtn:hover,
 .iconBtn:hover {
   background-color: var(--accent);
   transform: rotate(-8deg) scale(1.08);
 }
 
-.randomBtn svg,
 .iconBtn svg {
   width: 100%;
   height: 100%;
 }
 
 @media (max-width: 480px) {
-  .randomBtn,
   .iconBtn {
     width: 26px;
     height: 26px;
@@ -109,7 +106,7 @@ main {
   position: relative;
   width: 100%;
   max-width: 640px;
-  padding: 0 60px;
+  padding: 0 16px;
 }
 
 .frame {
@@ -158,53 +155,70 @@ main {
   right: 0;
 }
 
-/* ---------- Arrows ---------- */
+/* ---------- Controls (under the strip: prev / random / next) ---------- */
 
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  padding: 8px;
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.ctrlBtn {
+  flex: 0 0 auto;
   border: none;
   border-radius: 50%;
-  background: rgba(38, 36, 34, 0.75);
+  background: rgba(38, 36, 34, 0.85);
+  color: #fff;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s ease, transform 0.2s ease;
-  z-index: 15;
 }
 
-.arrow:hover {
+.ctrlBtn:hover {
   background-color: var(--accent);
-  transform: translateY(-50%) scale(1.08);
+  transform: scale(1.08);
 }
 
-.arrow img {
+.ctrlBtn--arrow {
+  width: 48px;
+  height: 48px;
+  padding: 11px;
+}
+
+.ctrlBtn--arrow img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   filter: brightness(0) invert(1);
 }
 
-.arrow--left {
-  left: 6px;
+.ctrlBtn--random {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
 }
 
-.arrow--right {
-  right: 6px;
+.ctrlBtn--random svg {
+  width: 100%;
+  height: 100%;
 }
 
 @media (max-width: 480px) {
   .stage {
-    padding: 0 44px;
+    padding: 0 8px;
   }
-  .arrow {
-    width: 32px;
-    height: 32px;
+  .ctrlBtn--arrow {
+    width: 44px;
+    height: 44px;
+  }
+  .ctrlBtn--random {
+    width: 36px;
+    height: 36px;
   }
 }
 
