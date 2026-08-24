@@ -1,111 +1,200 @@
+:root {
+  --paper: #ece4cf;
+  --ink: #2b2b2b;
+  --bar: #262422;
+  --accent: #b3502b;
+  --header-h: 64px;
+  --footer-h: 40px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
 
 body {
-background-color:#999966;
-margin:0px;
+  margin: 0;
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 1px, transparent 0);
+  background-size: 18px 18px;
+  color: var(--ink);
 }
+
+/* ---------- Header ---------- */
 
 header {
-background-color: #303030;
-display:fixed;
-position: fixed;
-top: 0;
-right: 0;
-width: 100%;
-padding-top:10px;
-padding-bottom:10px;
-}
-
-h2 {
-font-family:'Special Elite', cursive;
-text-align:center;
-color:white;
-}
-
-section {
-
-}
-
-div.strip {
-position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-h);
   display: flex;
-  right: -30%;
-  width: 40%;
-  height: auto;
-  padding-top: 100px;
-  padding-bottom: 80px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bar);
+  border-bottom: 3px solid var(--accent);
+  cursor: pointer;
+  z-index: 20;
+  transition: background-color 0.2s ease;
 }
 
-picture{
-width: 100%;
-height: auto;
+header:hover {
+  background-color: #322f2c;
 }
 
-img {
-
-    position: relative;
-    left: 50%;
-    width: 100%;
-    height: auto;
-    transform: translateX(-50%);
+h1 {
+  font-family: 'Special Elite', cursive;
+  font-size: clamp(16px, 3vw, 26px);
+  text-align: center;
+  color: #f4ede0;
+  margin: 0;
+  padding: 0 16px;
+  letter-spacing: 0.5px;
 }
 
-div.navRight{
-  display:inline;
-  position: fixed;
-  background-color: #ffffff;
-  opacity: 0.2;
-  right: 0%;
-  width:10%;
+/* ---------- Main stage ---------- */
+
+main {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: calc(var(--header-h) + 24px);
+  padding-bottom: calc(var(--footer-h) + 24px);
+}
+
+.stage {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  padding: 0 60px;
+}
+
+.frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #fff;
+  padding: 14px;
+  border-radius: 4px;
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.15),
+    0 10px 30px rgba(0,0,0,0.25);
+}
+
+.frame img {
+  display: block;
+  width: 100%;
   height: 100%;
+  object-fit: contain;
+  transition: opacity 0.15s ease;
 }
 
-div.navLeft{
-  display:inline;
+.frame img.is-changing {
+  opacity: 0;
+}
+
+/* ---------- Nav click zones (invisible, full-height) ---------- */
+
+.navZone {
   position: fixed;
-  background-color: #ffffff;
-  opacity: 0.2;
-  left:0%;
-  width:10%;
+  top: 0;
+  bottom: 0;
+  width: 12%;
+  min-width: 40px;
+  max-width: 120px;
+  z-index: 10;
+  cursor: pointer;
+  background: transparent;
+}
+
+.navZone--left {
+  left: 0;
+}
+
+.navZone--right {
+  right: 0;
+}
+
+/* ---------- Arrows ---------- */
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(38, 36, 34, 0.75);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  z-index: 15;
+}
+
+.arrow:hover {
+  background-color: var(--accent);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.arrow img {
+  width: 100%;
   height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
-div.arrowRight{
-  display:inline;
-  position: fixed;
-  top: 50%;
-  right: 0%;
-  width:10%;
-  height:auto;
-  transform: translate(0%, -50%);
+.arrow--left {
+  left: 6px;
 }
 
-div.arrowLeft{
-  display:inline;
-  position: fixed;
-  top: 50%;
-  left: 0%;
-  width:10%;
-  height:auto;
-  transform: translate(0%, -50%);
+.arrow--right {
+  right: 6px;
 }
+
+@media (max-width: 480px) {
+  .stage {
+    padding: 0 44px;
+  }
+  .arrow {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* ---------- Footer ---------- */
 
 footer {
-clear:both;
-background-color: #303030;
-position: fixed;
-display:block;
-bottom: 0;
-right: 0;
-width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--footer-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bar);
+  border-top: 3px solid var(--accent);
+  z-index: 20;
 }
 
 p {
-font-family:'Special Elite', cursive;
-text-align:center;
-color:white;
-font-size:10px;
+  font-family: 'Special Elite', cursive;
+  text-align: center;
+  color: #cfc8ba;
+  font-size: 10px;
+  margin: 0;
+  padding: 0 10px;
 }
 
-a{
-text-decoration:none
+a {
+  text-decoration: none;
 }
