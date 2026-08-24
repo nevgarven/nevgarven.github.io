@@ -13,6 +13,28 @@
 
   <header onclick="strip.home();" title="Back to start">
     <h1>Horace and Safetypin Conquer the World</h1>
+
+    <button class="randomBtn" aria-label="Show a random strip" title="Random strip"
+      onclick="event.stopPropagation(); strip.random();">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+        <circle cx="8" cy="8" r="1.6" fill="currentColor"/>
+        <circle cx="16" cy="8" r="1.6" fill="currentColor"/>
+        <circle cx="12" cy="12" r="1.6" fill="currentColor"/>
+        <circle cx="8" cy="16" r="1.6" fill="currentColor"/>
+        <circle cx="16" cy="16" r="1.6" fill="currentColor"/>
+      </svg>
+    </button>
+
+    <a class="iconBtn" href="https://www.instagram.com/horaceandsafetypin/" target="_blank"
+      rel="noopener noreferrer" aria-label="Horace and Safetypin on Instagram" title="Instagram"
+      onclick="event.stopPropagation();">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/>
+        <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"/>
+        <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/>
+      </svg>
+    </a>
   </header>
 
   <main>
@@ -23,7 +45,7 @@
       <div class="navZone navZone--right" role="button" aria-label="Next strip" onclick="strip.next();"></div>
 
       <div class="frame">
-        <img id="stripImg" src="20250228_Winners.png" alt="Horace and Safetypin comic strip">
+        <img id="stripImg" src="winners.png" alt="Horace and Safetypin comic strip">
       </div>
 
       <button class="arrow arrow--left" aria-label="Previous strip" onclick="strip.prev();">
