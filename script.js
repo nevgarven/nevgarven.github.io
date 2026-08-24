@@ -37,6 +37,19 @@ function StripCollection(images, imgId) {
     this.i = 0;
     this.show(this.i);
   };
+
+  // Jump to a random image, avoiding an immediate repeat when possible.
+  this.random = function () {
+    if (this.images.length <= 1) {
+      return;
+    }
+    var next;
+    do {
+      next = Math.floor(Math.random() * this.images.length);
+    } while (next === this.i);
+    this.i = next;
+    this.show(this.i);
+  };
 }
 
 // List your square (1080x1080) strip images here, in order.
