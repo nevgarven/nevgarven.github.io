@@ -4,14 +4,45 @@ function StripCollection(images, imgId) {
   this.img = document.getElementById(imgId);
   this.i = 0;
 
-  // Swap the visible image, with a quick fade for polish.
+  // Quietly warm the browser cache for every strip so switching feels
+  // instant even the first time a strip hasn't been viewed yet.
+  images.forEach(function (src) {
+    var preload = new Image();
+    preload.src = src;
+  });
+
+  // Swap the visible image. Fades out immediately, but only fades back
+  // in once the new image has actually finished loading - so on a slow
+  // connection you get a clean fade rather than a blank frame followed
+  // by the image popping in late.
   this.show = function (index) {
     var el = this.img;
+    var src = this.images[index];
     el.classList.add('is-changing');
-    window.setTimeout(function () {
-      el.setAttribute('src', images[index]);
-      el.classList.remove('is-changing');
-    }, 120);
+
+    var loader = new Image();
+    var swapped = false;
+
+    var reveal = function () {
+      if (swapped) {
+        return;
+      }
+      swapped = true;
+      el.setAttribute('src', src);
+      // Let the browser paint the (already-decoded) image before fading in.
+      window.requestAnimationFrame(function () {
+        el.classList.remove('is-changing');
+      });
+    };
+
+    loader.onload = reveal;
+    loader.onerror = reveal; // don't get stuck fading out if a file 404s
+    loader.src = src;
+
+    // Already cached images report "complete" right away.
+    if (loader.complete) {
+      reveal();
+    }
   };
 
   // Go to the next image, wrapping to the start at the end.
