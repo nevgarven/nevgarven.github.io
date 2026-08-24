@@ -35,6 +35,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 12px;
   background-color: var(--bar);
   border-bottom: 3px solid var(--accent);
   cursor: pointer;
@@ -54,6 +55,43 @@ h1 {
   margin: 0;
   padding: 0 16px;
   letter-spacing: 0.5px;
+}
+
+.randomBtn,
+.iconBtn {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(244, 237, 224, 0.12);
+  color: #f4ede0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.randomBtn:hover,
+.iconBtn:hover {
+  background-color: var(--accent);
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.randomBtn svg,
+.iconBtn svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 480px) {
+  .randomBtn,
+  .iconBtn {
+    width: 26px;
+    height: 26px;
+  }
 }
 
 /* ---------- Main stage ---------- */
