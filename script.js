@@ -56,7 +56,19 @@ function StripCollection(images, imgId) {
 // Add as many as you like - just keep adding filenames to this array.
 var strip = new StripCollection(
   [
-    '20250228_Winners.png',
+    '20260820_AIUsses.png',
+	'20251121_MoodRing.png',
+	'20250319_deadWorm.png',
+	'20250318_tshirt.png',
+	'20250317_voice.png',
+	'20250317_potato.png',
+	'20250313_nobody.png',
+	'20250313_badlyDrawn.png',
+	'20250310_Cookie.png',
+	'20250308_tomorrow.png',
+	'20250308_ispy.png',
+	'20250301_Fibre.png',
+	'20250228_Winners.png',
     '20250225_online.png',
 	'20250221_Pete.png'
   ],
