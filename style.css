@@ -191,7 +191,7 @@ main {
 .ctrlBtn--arrow {
   width: var(--controls-h);
   height: var(--controls-h);
-  padding: 22%;
+  padding: calc(var(--controls-h) * 0.22);
 }
 
 .ctrlBtn--arrow img {
@@ -204,7 +204,7 @@ main {
 .ctrlBtn--random {
   width: calc(var(--controls-h) * 0.83);
   height: calc(var(--controls-h) * 0.83);
-  padding: 20%;
+  padding: calc(var(--controls-h) * 0.17);
 }
 
 .ctrlBtn--random svg {
