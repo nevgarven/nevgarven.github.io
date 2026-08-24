@@ -1,52 +1,46 @@
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
-    <meta charset="utf-8">
-    <title>Horace and Safetypin Conquer the World</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
-    <script src="script.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Horace and Safetypin Conquer the World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <section>
-  
-            <div class="navLeft" value="Last" onclick="hsv.prev('vert'); hsh.prev('hori');"></div>
-  
- 
-            <div class="navRight" value="Next" onclick="hsv.next('vert'); hsh.next('hori');"></div>
+  <header onclick="strip.home();" title="Back to start">
+    <h1>Horace and Safetypin Conquer the World</h1>
+  </header>
 
-        <div class="strip">
+  <main>
+    <div class="stage">
 
-            <picture>
-                <source id="vert" srcset="winnersHe.png" media="screen and (orientation: portrait)">
-                <source id="hori" srcset="winnersH.png">
-                <img src="20250221_Pete.png">
-            </picture>
+      <!-- Full-height click zones for prev/next (kept from original, invisible now) -->
+      <div class="navZone navZone--left" role="button" aria-label="Previous strip" onclick="strip.prev();"></div>
+      <div class="navZone navZone--right" role="button" aria-label="Next strip" onclick="strip.next();"></div>
 
-        </div>
+      <div class="frame">
+        <img id="stripImg" src="20250228_Winners.png" alt="Horace and Safetypin comic strip">
+      </div>
 
-              <div class="arrowLeft" value="Last" onclick="hsv.prev('vert'); hsh.prev('hori');">
-                ​<picture>
-                    <img src="arrowL.svg" alt="Last">
-                </picture>
-            </div>
+      <button class="arrow arrow--left" aria-label="Previous strip" onclick="strip.prev();">
+        <img src="arrowL.svg" alt="">
+      </button>
 
- 
-            <div class="arrowRight" value="Next" onclick="hsv.next('vert'); hsh.next('hori');">
-                ​<picture>
-                    <img src="arrowR.svg" alt="Next">
-                </picture>
-            </div>
+      <button class="arrow arrow--right" aria-label="Next strip" onclick="strip.next();">
+        <img src="arrowR.svg" alt="">
+      </button>
 
-    </section>
+    </div>
+  </main>
 
-           <header value="Home" onclick="hsv.home('vert'); hsh.home('hori');">
-            <h2>Horace and Safetypin Conquer the World.</h2>
-        </header>
-    
-    <footer>
-        <p>Text and images Copyright Nev Garven. All rights reserved. Cannot be reproduced without permission.</p>
-    </footer>
+  <footer>
+    <p>Text and images Copyright Nev Garven. All rights reserved. Cannot be reproduced without permission.</p>
+  </footer>
 
-
-</body></html>
+  <script src="script.js"></script>
+</body>
+</html>
