@@ -5,6 +5,9 @@
   --accent: #b3502b;
   --header-h: 64px;
   --footer-h: 40px;
+  --icon-w: 32px;
+  --controls-h: 48px;
+  --chrome-v: calc(var(--header-h) + var(--footer-h) + 48px + 16px + var(--controls-h));
 }
 
 * {
@@ -32,9 +35,10 @@ header {
   left: 0;
   right: 0;
   height: var(--header-h);
-  display: flex;
+  display: grid;
+  grid-template-columns: var(--icon-w) 1fr var(--icon-w);
   align-items: center;
-  gap: 12px;
+  column-gap: 12px;
   padding: 0 12px;
   background-color: var(--bar);
   border-bottom: 3px solid var(--accent);
@@ -48,20 +52,19 @@ header:hover {
 }
 
 h1 {
-  flex: 1 1 auto;
+  grid-column: 2;
   font-family: 'Special Elite', cursive;
   font-size: clamp(16px, 3vw, 26px);
   text-align: center;
   color: #f4ede0;
   margin: 0;
-  padding: 0 16px;
   letter-spacing: 0.5px;
 }
 
 .iconBtn {
-  flex: 0 0 auto;
-  width: 32px;
-  height: 32px;
+  grid-column: 1;
+  width: var(--icon-w);
+  height: var(--icon-w);
   padding: 6px;
   border: none;
   border-radius: 50%;
@@ -85,9 +88,9 @@ h1 {
 }
 
 @media (max-width: 480px) {
-  .iconBtn {
-    width: 26px;
-    height: 26px;
+  :root {
+    --icon-w: 26px;
+    --controls-h: 44px;
   }
 }
 
@@ -111,7 +114,8 @@ main {
 
 .frame {
   position: relative;
-  width: 100%;
+  width: min(608px, 100%, calc(100vh - var(--chrome-v)));
+  margin: 0 auto;
   aspect-ratio: 1 / 1;
   background: #fff;
   padding: 14px;
@@ -162,8 +166,8 @@ main {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  width: 100%;
-  margin-top: 16px;
+  width: min(608px, 100%, calc(100vh - var(--chrome-v)));
+  margin: 16px auto 0;
 }
 
 .ctrlBtn {
@@ -185,9 +189,9 @@ main {
 }
 
 .ctrlBtn--arrow {
-  width: 48px;
-  height: 48px;
-  padding: 11px;
+  width: var(--controls-h);
+  height: var(--controls-h);
+  padding: 22%;
 }
 
 .ctrlBtn--arrow img {
@@ -198,9 +202,9 @@ main {
 }
 
 .ctrlBtn--random {
-  width: 40px;
-  height: 40px;
-  padding: 8px;
+  width: calc(var(--controls-h) * 0.83);
+  height: calc(var(--controls-h) * 0.83);
+  padding: 20%;
 }
 
 .ctrlBtn--random svg {
@@ -211,14 +215,6 @@ main {
 @media (max-width: 480px) {
   .stage {
     padding: 0 8px;
-  }
-  .ctrlBtn--arrow {
-    width: 44px;
-    height: 44px;
-  }
-  .ctrlBtn--random {
-    width: 36px;
-    height: 36px;
   }
 }
 
