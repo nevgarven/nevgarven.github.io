@@ -11,13 +11,18 @@ function StripCollection(images, imgId) {
     preload.src = src;
   });
 
-  // Swap the visible image. Fades out immediately, but only fades back
-  // in once the new image has actually finished loading - so on a slow
-  // connection you get a clean fade rather than a blank frame followed
-  // by the image popping in late.
+  // How long the CSS opacity transition takes (kept in sync with style.css).
+  var FADE_MS = 150;
+
+  // Swap the visible image. Fades out immediately, then waits for BOTH
+  // the new image to finish loading AND the minimum fade time to pass
+  // before fading back in - so a cached image still gets a visible fade
+  // (instead of the fade-out/fade-in getting batched into one frame with
+  // no visible change), and a slow image never pops in before it's ready.
   this.show = function (index) {
     var el = this.img;
     var src = this.images[index];
+    var start = Date.now();
     el.classList.add('is-changing');
 
     var loader = new Image();
@@ -28,11 +33,17 @@ function StripCollection(images, imgId) {
         return;
       }
       swapped = true;
-      el.setAttribute('src', src);
-      // Let the browser paint the (already-decoded) image before fading in.
-      window.requestAnimationFrame(function () {
-        el.classList.remove('is-changing');
-      });
+      var wait = Math.max(0, FADE_MS - (Date.now() - start));
+      window.setTimeout(function () {
+        el.setAttribute('src', src);
+        // Wait a couple of frames so the browser actually paints the
+        // faded-out state before we transition back in.
+        window.requestAnimationFrame(function () {
+          window.requestAnimationFrame(function () {
+            el.classList.remove('is-changing');
+          });
+        });
+      }, wait);
     };
 
     loader.onload = reveal;
