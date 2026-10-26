@@ -41,7 +41,6 @@ header {
   column-gap: 12px;
   padding: 0 12px;
   background-color: var(--bar);
-  border-bottom: 3px solid var(--accent);
   cursor: pointer;
   z-index: 20;
   transition: background-color 0.2s ease;
@@ -230,7 +229,6 @@ footer {
   align-items: center;
   justify-content: center;
   background-color: var(--bar);
-  border-top: 3px solid var(--accent);
   z-index: 20;
 }
 
